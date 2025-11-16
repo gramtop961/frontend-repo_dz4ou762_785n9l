@@ -4,6 +4,9 @@ import Features from './components/Features'
 import Pricing from './components/Pricing'
 import Testimonials from './components/Testimonials'
 import CTA from './components/CTA'
+import Gallery from './components/Gallery'
+import Snowfall from './components/Snowfall'
+import SnowDivider from './components/SnowDivider'
 
 function Footer() {
   return (
@@ -19,10 +22,15 @@ function Footer() {
 export default function App() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
+      {/* Snowfall overlay for winter vibes */}
+      <Snowfall count={120} intensity={1} />
+
       <Navbar />
       <main>
         <Hero />
+        <SnowDivider />
         <Features />
+        <Gallery />
         <Pricing />
         <Testimonials />
         <CTA />

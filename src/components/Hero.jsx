@@ -12,6 +12,13 @@ export default function Hero() {
         </svg>
       </div>
 
+      {/* Foreground snow drift */}
+      <div className="pointer-events-none absolute bottom-0 inset-x-0 -z-10">
+        <svg className="w-full h-24 text-white" preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,0 C150,100 350,0 600,60 C850,120 1050,20 1200,60 L1200,120 L0,120 Z" fill="currentColor" />
+        </svg>
+      </div>
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
@@ -42,14 +49,20 @@ export default function Hero() {
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-sky-100 to-blue-100 blur-2xl -z-10" />
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { title: 'Driveways', desc: 'Quick, careful clearing' },
-                  { title: 'Parking Lots', desc: 'Safe for staff & customers' },
-                  { title: 'Sidewalks', desc: 'Prevent slips & falls' },
-                  { title: 'Salting', desc: 'Ice prevention & treatment' },
+                  { title: 'Driveways', desc: 'Quick, careful clearing', img: 'https://images.unsplash.com/photo-1484755560615-a4c64e778a6c?q=80&w=800&auto=format&fit=crop' },
+                  { title: 'Parking Lots', desc: 'Safe for staff & customers', img: 'https://images.unsplash.com/photo-1519680772-8b1b0bfe2f48?q=80&w=800&auto=format&fit=crop' },
+                  { title: 'Sidewalks', desc: 'Prevent slips & falls', img: 'https://images.unsplash.com/photo-1516570161787-2fd917215a3d?q=80&w=800&auto=format&fit=crop' },
+                  { title: 'Salting', desc: 'Ice prevention & treatment', img: 'https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?q=80&w=800&auto=format&fit=crop' },
                 ].map((item) => (
-                  <div key={item.title} className="rounded-xl border border-gray-100 p-4 hover:border-sky-200 transition">
-                    <div className="text-xl font-semibold text-gray-900">{item.title}</div>
-                    <p className="mt-1 text-sm text-gray-600">{item.desc}</p>
+                  <div key={item.title} className="rounded-xl border border-gray-100 p-0 overflow-hidden group">
+                    <div className="relative aspect-[4/3]">
+                      <img src={item.img} alt={item.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/0 to-black/0" />
+                      <div className="absolute inset-x-0 bottom-0 p-4">
+                        <div className="text-white font-semibold drop-shadow-sm">{item.title}</div>
+                        <p className="mt-0.5 text-xs text-white/90">{item.desc}</p>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
